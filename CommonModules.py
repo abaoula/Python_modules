@@ -117,7 +117,6 @@ def finum(ax, x, y, text, color1):
 
 
 def figure(w1, ar, numbins):
-	print 'width - height - # ticks'
 	fig, ax = plt.subplots(ncols=1, nrows=1,figsize=(cm2inch(w1), cm2inch(ar)), dpi=100)
 	ax.locator_params(nbins=numbins+1)
 	#layout.cross_spines(ax=ax)
@@ -132,7 +131,6 @@ def figure(w1, ar, numbins):
 	return [fig, ax]
 
 def hsubplot(w1, ar, col, numbins, nx, colo):
-	print 'width - height - # cols - # ticks - sharey True or False'
 	fig2, ax2 = plt.subplots(ncols=col, nrows=1,figsize=(cm2inch(w1), cm2inch(ar)), dpi=100, sharey=nx)
 	plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
@@ -150,7 +148,6 @@ def hsubplot(w1, ar, col, numbins, nx, colo):
 	return [fig2, ax2]
 
 def vsubplot(w1, ar, row, numbins, nx):
-	print 'width - height - # rows - # ticks - sharex True or False'
 	fig3, ax3 = plt.subplots(ncols=1, nrows=row,figsize=(cm2inch(w1), cm2inch(ar)), dpi=100, sharex=nx)
 	plt.subplots_adjust(wspace=0.05, hspace=0.05)
 	for i in range(0, row,1):
@@ -168,7 +165,6 @@ def vsubplot(w1, ar, row, numbins, nx):
 
 
 def subplot(w1, ar, row, col, numbins, nx, ny, colo):
-  print 'width - height - # row -  # col - # ticks - sharex True or False - sharey True or False'
   fig4, ax4 = plt.subplots(ncols=col, nrows=row,figsize=(cm2inch(w1), cm2inch(ar)), dpi=100, sharex=nx, sharey=ny)
   plt.subplots_adjust(wspace=0.06, hspace=0.06)
   ii = -1
@@ -181,7 +177,3 @@ def subplot(w1, ar, row, col, numbins, nx, ny, colo):
       ax4[i,j].locator_params(nbins=numbins+1)
       ax4[i,j].text(0.05, 0.96, alphabet[ii], transform=ax4[i,j].transAxes, va='top', color=colo)
   return [fig4, ax4]
-
-
-print [key for key in locals().keys()
-   if isinstance(locals()[key], type(sys)) and not key.startswith('__')]
